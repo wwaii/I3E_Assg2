@@ -48,8 +48,20 @@ public class Player : MonoBehaviour
         CheckRotation();
 
         InteractioRaycast();
-    }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PauseGame();
+        }
+    }
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
     private void InteractioRaycast()
     {
         Debug.DrawLine(playerCamera.transform.position, playerCamera.transform.position + playerCamera.transform.forward * interactionDistance);
