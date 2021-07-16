@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 3239854221494025889
     second: textbox_pieces_0
+  - first:
+      213: 706694956107258156
+    second: textbox_pieces_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -110,6 +113,27 @@ TextureImporter:
       bones: []
       spriteID: 1ae733cbf3646fc20800000000000000
       internalID: 3239854221494025889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: textbox_pieces_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 390
+        width: 454
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29555f715faec900800000000000000
+      internalID: 706694956107258156
       vertices: []
       indices: 
       edges: []
