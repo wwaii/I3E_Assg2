@@ -16,30 +16,130 @@ using UnityEngine;
 public class IntObject : MonoBehaviour
 {
     public bool collectable;
-    public GameObject PlayerUI;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    public GameObject borderUI;
+    public GameObject kidUI;
+    public GameObject zeroGuardUI;
+    public GameObject zeroAuntieUI;
+    public GameObject zeroUncleUI;
+    public GameObject zeroChiefUI;
+    public GameObject oneGuardUI;
+    public GameObject oneAuntieUI;
+    public GameObject oneUncleUI;
+    public GameObject oneChiefUI; 
+    public GameObject twoAuntieUI;
+    public GameObject twoUncleUI;
+    public GameObject twoChiefUI;
+    public GameObject threeChiefUI;
+    public GameObject ChiefInHouseUI;
+
+    public bool guard;
+    public bool aunite;
+    public bool uncle;
+    public bool kid;
+    public bool chief;
+    public bool chiefInHouse;
+    private bool phaseOneChecking;
+    private bool phaseTwoChecking;
+    private bool phaseThreeChecking;
+
+    private void Update()
+    {
+        phaseOneChecking = GameObject.Find("PlayerBody").GetComponent<Controll>().phaseOne;
+        phaseTwoChecking = GameObject.Find("PlayerBody").GetComponent<Controll>().phaseTwo;
+        phaseThreeChecking = GameObject.Find("PlayerBody").GetComponent<Controll>().phaseThree;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Interact()
     {
         if (collectable == true)
         {
-            Debug.Log("take");
             gameObject.SetActive(false);
+            
         }
         else
         {
-            Debug.Log("talk");
-            PlayerUI.SetActive(true);
+            if (guard == true)
+            {
+               if (phaseOneChecking)
+                {
+                    oneGuardUI.SetActive(true);
+                }
+               else 
+                {
+                    zeroGuardUI.SetActive(true);
+                }
+            }
+
+            else if (aunite == true)
+            {
+                if (phaseTwoChecking)
+                {
+                    twoAuntieUI.SetActive(true);
+                }
+
+                else if (phaseOneChecking)
+                {
+                    oneAuntieUI.SetActive(true);
+                }
+
+                else
+                {
+                    zeroAuntieUI.SetActive(true);
+                }
+            }
+
+            else if (uncle == true)
+            {
+                if (phaseTwoChecking)
+                {
+                    twoUncleUI.SetActive(true);
+                }
+
+                else if (phaseOneChecking)
+                {
+                    oneUncleUI.SetActive(true);
+                }
+
+                else
+                {
+                    zeroUncleUI.SetActive(true);
+                }
+            }
+
+            else if (kid == true)
+            {
+                kidUI.SetActive(true);
+            }
+
+            else if (chief == true)
+            {
+                if (phaseThreeChecking)
+                {
+                    threeChiefUI.SetActive(true);
+                }
+
+                else if (phaseTwoChecking)
+                {
+                    twoChiefUI.SetActive(true);
+                }
+
+                else if (phaseOneChecking)
+                {
+                    oneChiefUI.SetActive(true);
+                }
+
+                else
+                {
+                    zeroChiefUI.SetActive(true);
+                }
+            }
+
+            else if (chiefInHouse == true)
+            {
+                threeChiefUI.SetActive(true);
+            }
         }
     }
 }

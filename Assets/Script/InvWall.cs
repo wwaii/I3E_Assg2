@@ -24,12 +24,13 @@ public class InvWall : MonoBehaviour
     public GameObject houseWarningUI;
     public bool chiefHouse;
     private bool phaseTwoChecking;
-    private bool phaseThreeChecking;
+    private bool phaseOneChecking;
 
     private void Update()
     {
-        phaseTwoChecking = GameObject.Find("PlayerBody").GetComponent<Player>().phaseTwo;
-        phaseThreeChecking = GameObject.Find("PlayerBody").GetComponent<Player>().phaseThree;
+        phaseOneChecking = GameObject.Find("PlayerBody").GetComponent<Controll>().phaseOne;
+        phaseTwoChecking = GameObject.Find("PlayerBody").GetComponent<Controll>().phaseTwo;
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -37,7 +38,7 @@ public class InvWall : MonoBehaviour
         Debug.Log("touched");
         if (chiefHouse == true)
         {
-            if (phaseThreeChecking)
+            if (phaseTwoChecking)
             {
                 thePlayer.transform.position = teleportHouse.transform.position;
             }
@@ -50,7 +51,7 @@ public class InvWall : MonoBehaviour
 
         else
         {
-            if (phaseTwoChecking)
+            if (phaseOneChecking)
             {
                 thePlayer.transform.position = teleportForest.transform.position;
             }
